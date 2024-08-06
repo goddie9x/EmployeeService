@@ -42,4 +42,19 @@ public class Employee {
         this.kin = employee.getKin();
         this.isDisciplined = employee.getIsDisciplined();
     }
+    public void copyAttributesIfValid(Employee sourceEmployee) {
+        if (sourceEmployee.getFirstName() != null) {
+            this.firstName = sourceEmployee.getFirstName();
+        }
+        if (sourceEmployee.getLastName() != null) {
+            this.lastName = sourceEmployee.getLastName();
+        }
+        if (sourceEmployee.getKin() != null) {
+            this.kin = sourceEmployee.getKin();
+        }
+        if (sourceEmployee.getIsDisciplined() != null) {
+            this.isDisciplined = sourceEmployee.getIsDisciplined();
+        }
+    }
+    
 }

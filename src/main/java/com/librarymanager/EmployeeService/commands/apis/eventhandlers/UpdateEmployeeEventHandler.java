@@ -18,7 +18,7 @@ public class UpdateEmployeeEventHandler {
         Employee updateEmployeeData = event.getEmployee();
         Employee target = employeeRepository.findById(updateEmployeeData.getEmployeeId()).orElseThrow();
 
-        target.copy(updateEmployeeData);
+        target.copyAttributesIfValid(updateEmployeeData);
         employeeRepository.save(target);
     }
 }

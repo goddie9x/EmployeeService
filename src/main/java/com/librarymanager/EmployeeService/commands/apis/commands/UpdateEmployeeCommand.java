@@ -1,5 +1,7 @@
 package com.librarymanager.EmployeeService.commands.apis.commands;
 
+import java.util.UUID;
+
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 import com.librarymanager.EmployeeService.commands.apis.events.UpdateEmployeeEvent;
@@ -16,7 +18,7 @@ public class UpdateEmployeeCommand implements ICommand{
     private Employee employee;
 
     public UpdateEmployeeCommand(Employee employee) {
-        this.aggregateIdentifier = employee.getEmployeeId();
+        this.aggregateIdentifier = UUID.randomUUID().toString();
         this.employee = employee;
     }
     public UpdateEmployeeEvent genEvent(){
