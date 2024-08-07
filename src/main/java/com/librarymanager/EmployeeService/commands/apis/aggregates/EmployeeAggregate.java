@@ -21,24 +21,24 @@ public class EmployeeAggregate {
 
     @CommandHandler
     public EmployeeAggregate(CreateEmployeeCommand createEmployeeCommand){
-        applyEventToAggregateIdentifier(createEmployeeCommand);
+        applyEventToAggregateLifecycleFromCommand(createEmployeeCommand);
     }
 
     @CommandHandler
     public EmployeeAggregate(UpdateEmployeeCommand updateEmployeeCommand){
-        applyEventToAggregateIdentifier(updateEmployeeCommand);
+        applyEventToAggregateLifecycleFromCommand(updateEmployeeCommand);
     }
 
     @CommandHandler
     public EmployeeAggregate(DeleteEmployeeCommand deleteEmployeeCommand){
-        applyEventToAggregateIdentifier(deleteEmployeeCommand);
+        applyEventToAggregateLifecycleFromCommand(deleteEmployeeCommand);
     }
 
     @EventSourcingHandler
     public void on(IEvent event) {
         this.identifier = event.getAggregateIdentifier();
     }
-    private void applyEventToAggregateIdentifier(ICommand command){
+    private void applyEventToAggregateLifecycleFromCommand(ICommand command){
         AggregateLifecycle.apply(command.genEvent());
     }
 }

@@ -18,7 +18,7 @@ public class EmployeeProjection {
 
     @QueryHandler
     Employee getEmployeeById(GetEmployeeByIdQuery query){
-        Employee result = employeeRepository.findById(query.getEmployeeId()).orElseThrow();
+        Employee result = employeeRepository.findById(query.getEmployeeId()).orElse(null);
 
         return result;
     }
