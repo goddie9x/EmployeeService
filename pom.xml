@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -99,9 +99,10 @@
 			<version>1.18.34</version>
 		</dependency>
 		<dependency>
-			<groupId>com.librarymanager</groupId>
+			<groupId>com.github.goddie9x</groupId>
 			<artifactId>CommunicationStructure</artifactId>
-			<version>0.0.1</version>
+			<version>1.0.4</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
@@ -124,5 +125,10 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
 </project>
