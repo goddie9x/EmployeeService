@@ -8,8 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.librarymanager.CommunicationStructure.queries.queries.GetEmployeeByIdQuery;
+import com.librarymanager.CommunicationStructure.queries.responses.EmployeeResponse;
 import com.librarymanager.EmployeeService.commands.apis.models.Employee;
-import com.librarymanager.EmployeeService.queries.apis.queries.GetEmployeeByIdQuery;
 import com.librarymanager.EmployeeService.queries.apis.requests.PaginationQueryRequest;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,9 +32,9 @@ public class EmployeeQueryController {
     }
 
     @GetMapping("/{employeeId}")
-    public Employee getMethodName(@PathVariable String employeeId) {
+    public EmployeeResponse getMethodName(@PathVariable String employeeId) {
         GetEmployeeByIdQuery query = new GetEmployeeByIdQuery(employeeId);
-        Employee response = queryGateway.query(query, ResponseTypes.instanceOf(Employee.class)).join();
+        EmployeeResponse response = queryGateway.query(query, ResponseTypes.instanceOf(EmployeeResponse.class)).join();
 
         return response;
     }

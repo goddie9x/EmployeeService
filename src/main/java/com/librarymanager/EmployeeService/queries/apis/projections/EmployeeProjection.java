@@ -6,10 +6,11 @@ import org.axonframework.queryhandling.QueryHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.librarymanager.CommunicationStructure.queries.queries.GetEmployeeByIdQuery;
+import com.librarymanager.CommunicationStructure.queries.responses.EmployeeResponse;
 import com.librarymanager.EmployeeService.commands.apis.data.EmployeeRepository;
 import com.librarymanager.EmployeeService.commands.apis.models.Employee;
 import com.librarymanager.EmployeeService.queries.apis.queries.GetAllEmployeeQuery;
-import com.librarymanager.EmployeeService.queries.apis.queries.GetEmployeeByIdQuery;
 
 @Component
 public class EmployeeProjection {
@@ -17,8 +18,8 @@ public class EmployeeProjection {
     EmployeeRepository employeeRepository;
 
     @QueryHandler
-    Employee getEmployeeById(GetEmployeeByIdQuery query){
-        Employee result = employeeRepository.findById(query.getEmployeeId()).orElse(null);
+    EmployeeResponse getEmployeeById(GetEmployeeByIdQuery query){
+        EmployeeResponse result = employeeRepository.findById(query.getEmployeeId()).orElse(null).genEmployeeResponse();
 
         return result;
     }

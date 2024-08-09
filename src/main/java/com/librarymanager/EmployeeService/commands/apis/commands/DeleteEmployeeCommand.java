@@ -1,7 +1,6 @@
 package com.librarymanager.EmployeeService.commands.apis.commands;
 
-import java.util.UUID;
-
+import com.librarymanager.CommunicationStructure.commands.commands.CommandAbstract;
 import com.librarymanager.EmployeeService.commands.apis.events.DeleteEmployeeEvent;
 
 import lombok.Getter;
@@ -9,13 +8,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class DeleteEmployeeCommand implements ICommand{
-    private String aggregateIdentifier;
+public class DeleteEmployeeCommand extends CommandAbstract{
     private String employeeId;
 
     public DeleteEmployeeCommand(String employeeId){
+        super();
         this.employeeId = employeeId;
-        this.aggregateIdentifier = UUID.randomUUID().toString();
     }
     public DeleteEmployeeEvent genEvent(){
         return new DeleteEmployeeEvent(aggregateIdentifier,employeeId);

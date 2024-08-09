@@ -2,6 +2,7 @@ package com.librarymanager.EmployeeService.commands.apis.models;
 
 import java.util.UUID;
 
+import com.librarymanager.CommunicationStructure.queries.responses.EmployeeResponse;
 import com.librarymanager.EmployeeService.commands.apis.commands.CreateEmployeeCommand;
 import com.librarymanager.EmployeeService.commands.apis.commands.UpdateEmployeeCommand;
 
@@ -55,6 +56,10 @@ public class Employee {
         if (sourceEmployee.getIsDisciplined() != null) {
             this.isDisciplined = sourceEmployee.getIsDisciplined();
         }
+    }
+
+    public EmployeeResponse genEmployeeResponse() {
+        return new EmployeeResponse(employeeId, firstName, lastName, kin, isDisciplined);
     }
     
 }

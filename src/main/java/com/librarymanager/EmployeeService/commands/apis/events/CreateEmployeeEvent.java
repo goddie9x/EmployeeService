@@ -1,5 +1,6 @@
 package com.librarymanager.EmployeeService.commands.apis.events;
 
+import com.librarymanager.CommunicationStructure.commands.events.IEvent;
 import com.librarymanager.EmployeeService.commands.apis.models.Employee;
 
 import lombok.AllArgsConstructor;
